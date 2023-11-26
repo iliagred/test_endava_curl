@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Perform curl request and store the HTTP status code in a variable
+status_code=$(curl -s -o /dev/null -w "%{http_code}" https://endava.com)
+
+# Check if curl encountered an error
+if [ "$?" -ne 0 ]; then
+  echo "Curl request failed: $status_code"
+else
+  echo "HTTP status code: $status_code"
+fi
+
